@@ -7,12 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class AlbumArtSetterApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(AlbumArtSetterApplication.class.getResource("album-chooser-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Choose Which Albums you want to add picture to!");
         stage.setScene(scene);
         stage.show();
     }
