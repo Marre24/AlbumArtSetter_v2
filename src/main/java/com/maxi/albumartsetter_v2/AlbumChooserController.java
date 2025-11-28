@@ -2,9 +2,11 @@ package com.maxi.albumartsetter_v2;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.util.Map;
 
@@ -33,6 +35,8 @@ public class AlbumChooserController {
             albums = albumsWithArtListView.getSelectionModel().getSelectedItems();
 
         System.out.println(albums);
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        SceneBuilder.startArtSetter(stage, null);
     }
 
     public void deSelectAll(ActionEvent actionEvent) {
