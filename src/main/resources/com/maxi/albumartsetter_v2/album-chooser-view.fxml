@@ -39,6 +39,11 @@
                <HBox.margin>
                   <Insets left="10.0" top="20.0" />
                </HBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#deSelectAll" text="De-select all">
+               <HBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowSpan="2">
