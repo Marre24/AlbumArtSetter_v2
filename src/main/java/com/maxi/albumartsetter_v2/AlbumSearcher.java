@@ -44,12 +44,14 @@ public class AlbumSearcher {
 
     private static AlbumFolder getAlbum(File albumDir) {
         for (var file : albumDir.listFiles()){
+            if (!file.getName().endsWith(".mp3"))
+                continue;
             String[] result = getMp3AlbumName(file);
             if (result != null)
                 return new AlbumFolder(albumDir, result[0], result[1]);
         }
 
-        return null;
+        return new AlbumFolder(albumDir, albumDir.getName(), "");
     }
 
     private static String[] getMp3AlbumName(File file) {

@@ -2,6 +2,7 @@ package com.maxi.albumartsetter_v2;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -17,6 +18,7 @@ public class ArtSetterController {
     public ImageView slot2Image;
     public ImageView slot3Image;
     public ImageView slot4Image;
+    public Label album;
 
     private AlbumFolder current;
 
@@ -72,6 +74,7 @@ public class ArtSetterController {
         slot4Image.setImage(null);
 
         current = imgFiles.keySet().iterator().next();
+        album.setText(current.toString());
         var ip = imgFiles.get(current);
 
         if (ip[0] == null)

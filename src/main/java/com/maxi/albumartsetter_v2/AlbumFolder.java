@@ -29,6 +29,6 @@ public class AlbumFolder {
 
     @Override
     public String toString() {
-        return "Album: " + getName() + " by " + artist;
+        return getName() + " by " + artist;
     }
 }

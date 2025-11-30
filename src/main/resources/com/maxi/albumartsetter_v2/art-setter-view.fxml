@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -23,15 +23,20 @@
         <RowConstraints percentHeight="40" />
         <RowConstraints percentHeight="40" />
     </rowConstraints>
-   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2">
+   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2">
       <children>
+         <Label fx:id="album" text="Album: ">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
          <Button mnemonicParsing="false" onAction="#skip" text="Skip">
             <font>
                <Font size="18.0" />
             </font>
          </Button>
       </children>
-   </HBox>
+   </VBox>
 
     <!-- TEMPLATE SLOT (reused 4 times) -->
     <!-- Top-left -->
