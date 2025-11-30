@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Stack;
+import java.util.Map;
 
 public class SceneBuilder {
 
@@ -26,21 +26,17 @@ public class SceneBuilder {
         stage.show();
     }
 
-    public static void startArtSetter(Stage stage, Stack<File> imgPaths) {
+    public static void startArtSetter(Stage stage) {
         FXMLLoader fxmlLoader = new FXMLLoader(AlbumArtSetterApplication.class.getResource("art-setter-view.fxml"));
-        Parent root = null;
+        Scene scene = null;
         try {
-            root = fxmlLoader.load();
+            scene = new Scene(fxmlLoader.load());
         } catch (IOException e) {
-            System.err.println("Could not load art setter scene: " + e.getMessage());
+            System.err.println("Could not load album art setter scene: " + e.getMessage());
             return;
         }
-        ArtSetterController controller = fxmlLoader.getController();
-        controller.setImgPaths(imgPaths);
-        Scene scene = new Scene(root);
         stage.setTitle("Choose matching art!");
         stage.setScene(scene);
-
         stage.show();
     }
 }

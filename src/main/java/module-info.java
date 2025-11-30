@@ -3,6 +3,9 @@ module com.maxi.albumartsetter_v2 {
     requires javafx.fxml;
     requires jaudiotagger;
     requires javafx.graphics;
+    requires java.net.http;
+    requires com.google.gson;
+    requires java.logging;
 
 
     opens com.maxi.albumartsetter_v2 to javafx.fxml;

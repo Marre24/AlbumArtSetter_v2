@@ -6,25 +6,29 @@ public class AlbumFolder {
 
 
     private final File albumDir;
-    private String name = null;
+    private final String name;
+    private final String artist;
 
-    public AlbumFolder(File albumDir, String name) {
+    public AlbumFolder(File albumDir, String name, String artist) {
         this.albumDir = albumDir;
         this.name = name;
-    }
-
-    public AlbumFolder(File albumDir) {
-        this.albumDir = albumDir;
+        this.artist = artist;
     }
 
     public String getName() {
-        if (name == null)
-            return albumDir.getName();
         return name;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public File getAlbumDir() {
+        return albumDir;
     }
 
     @Override
     public String toString() {
-        return "Album: " + getName();
+        return "Album: " + getName() + " by " + artist;
     }
 }

@@ -44,22 +44,22 @@ public class AlbumSearcher {
 
     private static AlbumFolder getAlbum(File albumDir) {
         for (var file : albumDir.listFiles()){
-            String name = getMp3AlbumName(file);
-            if (name != null)
-                return new AlbumFolder(albumDir, name);
+            String[] result = getMp3AlbumName(file);
+            if (result != null)
+                return new AlbumFolder(albumDir, result[0], result[1]);
         }
 
-        return new AlbumFolder(albumDir);
+        return null;
     }
 
-    private static String getMp3AlbumName(File file) {
+    private static String[] getMp3AlbumName(File file) {
         try {
             var audioFile = AudioFileIO.read(file);
             MP3File mp3 = (MP3File) audioFile;
             Tag tag = mp3.getTag();
-            if (tag == null || tag.getFirst(FieldKey.ALBUM).isBlank())
+            if (tag == null || tag.getFirst(FieldKey.ALBUM).isBlank() || tag.getFirst(FieldKey.ALBUM_ARTIST).isBlank())
                 return null;
-            return tag.getFirst(FieldKey.ALBUM);
+            return new String[]{tag.getFirst(FieldKey.ALBUM), tag.getFirst(FieldKey.ALBUM_ARTIST)};
         } catch (CannotReadException e) {
             System.err.println("Could not read from file: " + file.getPath());
             return null;

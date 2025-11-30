@@ -36,7 +36,9 @@ public class AlbumChooserController {
 
         System.out.println(albums);
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        SceneBuilder.startArtSetter(stage, null);
+
+        GlobalVariables.imgFiles = AlbumArtManager.getImgFilesFor(albums.stream().toList());
+        SceneBuilder.startArtSetter(stage);
     }
 
     public void deSelectAll(ActionEvent actionEvent) {
